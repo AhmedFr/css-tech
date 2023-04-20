@@ -4,6 +4,8 @@ import { PrimaryButton, Button } from "@/components/tailwind/Button";
 import { Button as StyledButton, PrimaryButton as StyledPrimaryButton } from "@/components/styled/Button";
 import { Button as SassButton, PrimaryButton as SassPrimaryButton } from "@/components/sass/Button";
 
+import { Button as MantineButton } from '@mantine/core';
+
 export default function Home() {
   return (
     <div className="p-32">
@@ -24,6 +26,7 @@ export default function Home() {
         <Button>Click me</Button>
         <PrimaryButton>Click me</PrimaryButton>
       </Section>
+      <MantineButton>Click me</MantineButton>
     </div>
   );
 }
