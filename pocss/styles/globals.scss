@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-$primary-color: #63e069;
-$secondary-color: #1c8dff;
+$primary-color: #1a8cff;
+$secondary-color: #17bd2d;
 $white: #fff;
+$black: #000;
 
-.btn {
-  background-color: #1c8dff;
+@mixin btn-shared($color: $primary-color) {
   color: $white;
   border: none;
   border-radius: 5px;
@@ -15,21 +15,81 @@ $white: #fff;
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  background: $color;
   &:hover {
-    background-color: $primary-color;
+    background: mix($color, $black, 80%);
+  }
+}
+
+.btn {
+  &__primary {
+    @include btn-shared();
   }
 
-  .primary {
-    background-color: $primary-color;
-    color: $white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      background-color: $secondary-color;
-    }
+  &__secondary {
+    @include btn-shared($secondary-color);
   }
+}
+
+$pOrange: #ff6b00;
+$gray: #d3d3d3;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.info-container {
+  padding: 0 20px;
+}
+
+.image {
+  background-color: $pOrange;
+  width: 300px;
+  height: 100%;
+}
+
+.companyName {
+  color: $pOrange;
+  text-transform: uppercase;
+  font-size: large;
+}
+
+h1 {
+  text-transform: capitalize;
+  font-size: x-large;
+}
+
+p {
+  font-size: small;
+  color: gray;
+
+  &__discounted {
+    @extend p;
+    text-decoration: line-through;
+  }
+}
+
+.price {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.sale {
+  color: $pOrange;
+  font-weight: bold;
+  background: mix($pOrange, $white, 40%);
+}
+
+.final {
+  background: $pOrange;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 8px 16px;
 }
